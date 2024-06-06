@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title></title>
+        <script src="https://unpkg.com/vue@3"></script>
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+
+            body {
+                display: grid;
+                place-items: center;
+            }
+            .text-red {
+                color: red;
+            }
+            .text-green {
+                color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <button v-bind:class="buttonClasses">Click me!</button>
+        </div>
+
+        <script>
+            Vue.createApp({
+                data() {
+                    return {
+                        greeting: 'hej',
+                        buttonClasses: 'text-red'
+                    };
+                },
+            }).mount('#app');
+        </script>
+    </body>
+</html>
