@@ -5,27 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title></title>
         <script src="https://unpkg.com/vue@3"></script>
-        <style>
-            html,
-            body {
-                height: 100%;
-            }
-
-            body {
-                display: grid;
-                place-items: center;
-            }
-            .text-red {
-                color: red;
-            }
-            .text-green {
-                color: green;
-            }
-        </style>
     </head>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            place-items: center;
+        }
+
+        .text-red {
+            color: red;
+        }
+        .text-green {
+            color: green;
+        }
+    </style>
     <body>
         <div id="app">
-            <button v-bind:class="buttonClasses">Click me!</button>
+            <button v-bind:class="buttonColor">{{ greeting }}</button>
         </div>
 
         <script>
@@ -33,8 +34,13 @@
                 data() {
                     return {
                         greeting: 'hej',
-                        buttonClasses: 'text-red'
+                        buttonColor: 'text-red'
                     };
+                },
+                mounted() {
+                    setTimeout(() => {
+                        this.greeting = 'Changed';
+                    }, 3000);
                 },
             }).mount('#app');
         </script>
