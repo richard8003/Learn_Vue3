@@ -26,7 +26,7 @@
     </style>
     <body>
         <div id="app">
-            <button v-bind:class="active ? 'text-red' : 'text-green'" @click="toggle">{{ greeting }}</button>
+            <button v-bind:class="buttonColor" v-on:click="toggle">{{ greeting }}</button>
         </div>
 
         <script>
@@ -35,13 +35,15 @@
                     return {
                         greeting: 'hej',
                         buttonColor: 'text-red',
-                        active: false,
                     }
                 },
                 methods: {
                     toggle() {
-                        this.active = !this.active
-                        console.log(this.active)
+                        if (this.buttonColor == 'text-red') {
+                            this.buttonColor = 'text-green'
+                        } else {
+                            this.buttonColor = 'text-red'
+                        }
                     }
 
                 },
